@@ -7,10 +7,6 @@
     <title>一覧</title>
 </head>
 <body>
-    <?PHP include('header.php')?>
-    <div class="buttons">
-        <a href="byCategory.php"><button type="submit" id="byCategory">種類別</button></a>
-    </div>
 <?php
     try{
         $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
@@ -18,20 +14,18 @@
         exit('DbConnectError:'.$e->getMessage());
     }
 
-    $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY expire asc');
+    $search = $_POST['search'];
+    $stmt = $pdo->prepare('SELECT $search FROM em_stock_table');
     $status = $stmt->execute();
 
     $view = '';
     if($status==false){
-        exit('Error!');
+        exit('error!');
     }else{
         while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
             $view .= '<p>';
-            $view .= '<a href="update.php?id='.$result["id"].'">';
-            $view .= $result['expire'].'-'.$result['category'].'-'.$result['item'].'-'.$result["location"];
-            $view .= '</a> ';
-            $view .= '<a href="delete.php?id='.$result["id"].'">';
-            $view .= '<button type="submit" class="dlt">削除</button>';
+            $view .= '<a href="update.php?id='.$result["ID"].'">';
+            $view .= $result['category'].'-'.$result['item'].'-'.date('Y-m-d', strtotime($result['expire']).'-'.$result["location"]);
             $view .= '</a>';
             $view .= '</p>';
         }

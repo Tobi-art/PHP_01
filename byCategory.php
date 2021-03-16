@@ -7,9 +7,10 @@
     <title>一覧</title>
 </head>
 <body>
-    <?PHP include('header.php')?>
     <div class="buttons">
-        <a href="byCategory.php"><button type="submit" id="byCategory">種類別</button></a>
+        <a href="index.php"><button type="submit" id="back">メインメニューに戻る</button></a>
+        <a href="overview.php"><button type="submit" id="overview">日付順番</button></a>
+        <a href="registerNew.php"><button type="submit" id="registerNew">新規登録</button></a>
     </div>
 <?php
     try{
@@ -18,7 +19,7 @@
         exit('DbConnectError:'.$e->getMessage());
     }
 
-    $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY expire asc');
+    $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY category asc');
     $status = $stmt->execute();
 
     $view = '';
@@ -32,7 +33,7 @@
             $view .= '</a> ';
             $view .= '<a href="delete.php?id='.$result["id"].'">';
             $view .= '<button type="submit" class="dlt">削除</button>';
-            $view .= '</a>';
+            $view .= '</a>;';
             $view .= '</p>';
         }
     }
