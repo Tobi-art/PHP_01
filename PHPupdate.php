@@ -20,11 +20,11 @@ $update->bindValue(':id', $id, PDO::PARAM_STR);
 
 $status = $update->execute();
 
-    if($status==false){
-        exit ('Error');
-    } else{
-        header('Location: update.php');
-    }
+if($status==false){
+    exit ('Error');
+} else{
+    header('Location: overview.php');
+}
 
 
 

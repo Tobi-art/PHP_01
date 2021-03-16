@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一覧</title>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+    <header>
+    <?php include('header.php')?>
+</header>
     <div class="buttons">
-        <a href="index.php"><button type="submit" id="back">メインメニューに戻る</button></a>
-        <a href="overview.php"><button type="submit" id="overview">日付順番</button></a>
-        <a href="registerNew.php"><button type="submit" id="registerNew">新規登録</button></a>
+        <a href="overview.php"><button type="submit" class='buttons'>日付順番表示</button></a>
     </div>
 <?php
     try{
@@ -39,5 +42,7 @@
     }
     ?>
     <div class="view"><?= $view?></div>
+
+    <footer></footer>
 </body>
 </html>
