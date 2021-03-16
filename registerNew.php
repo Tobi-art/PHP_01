@@ -9,15 +9,12 @@
 <body>
 <body>
 <form action="PHPRegisterNew.php" method="post">
-    <label for="category">Title</label><input type="text" name="category"><br>
-    <label for="item">URL</label><input type="text" name="item"><br>
-    <label for="location">Comment</label><input type="text" name="location"><br>
-    <label for="expire">Comment</label><input type="text" name="expire"><br>
+    <label for="category">種類</label><input type="text" name="category"><br>
+    <label for="item">名前</label><input type="text" name="item"><br>
+    <label for="location">保存場所</label><input type="text" name="location"><br>
+    <label for="expire">賞味期限</label><input type="text" name="expire"><br>
     <input type="submit" value="Submit">
     </form>
-
-    <br>
-    <div class="view"><?= $view?></div>
 
 </body>
 </body>

@@ -24,10 +24,11 @@
     パスタ。。。
 </div>
 <div id="searchbar">
+<form action="search.php" method="post"></form>
 <label for="search">捜索</label><input type="text" id="search" name="search">
 </div>
 <div id="randomChoice">
-    
+
 </div>
     
 </body>
