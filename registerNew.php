@@ -7,15 +7,12 @@
     <title>新規登録</title>
 </head>
 <body>
-<body>
-<form action="PHPRegisterNew.php" method="post">
+<form action="PHPregisterNew.php" method="post">
     <label for="category">種類</label><input type="text" name="category"><br>
     <label for="item">名前</label><input type="text" name="item"><br>
     <label for="location">保存場所</label><input type="text" name="location"><br>
-    <label for="expire">賞味期限</label><input type="text" name="expire"><br>
+    <label for="expire">賞味期限</label><input type="date" name="expire"><br>
     <input type="submit" value="Submit">
     </form>
-
-</body>
 </body>
 </html>
