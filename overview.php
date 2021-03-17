@@ -33,7 +33,7 @@
         while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
             $view .= '<p>';
             $view .= '<a href="update.php?id='.$result["id"].'">';
-            $view .= $result['expire'].'　'.$result['category'].'-'.$result['item'].'-'.$result["location"];
+            $view .= $result['expire'].'　'.$result['category'].'　'.$result['item'].'　'.$result["location"];
             $view .= '</a> ';
             $view .= '<a href="delete.php?id='.$result["id"].'">';
             $view .= '<button type="submit" class="dlt">削除</button>';
