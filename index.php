@@ -23,16 +23,15 @@
             <input type="text" id="search" name="search"><br>
             <button type="submit">スタート</button>
         </form>
+        <br>
+        <div id="byCategory">
+            <h4 class='counts'>残存:</h4>
+            <?php include('counts.php')?>
+        </div>
     </div>
 </main>
 <footer>
-    <div id="byCategory">
-        缶詰
-        カップ麺
-        カレー
-        米
-        パスタ。。。
-    </div>
+
 
     <div id="randomChoice">
 </footer>

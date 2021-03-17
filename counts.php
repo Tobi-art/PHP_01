@@ -10,9 +10,7 @@
 </head>
 <body>
 <?php
-    include('header.php');
-
-    $search = $_POST['search'];
+    // include('header.php');
 
     try{
         $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
@@ -20,27 +18,26 @@
         exit('DbConnectError:'.$e->getMessage());
     }
 
-    $search = $_POST['search'];
-    $stmt = $pdo->prepare('SELECT * FROM em_stock_table WHERE category LIKE :search OR item LIKE :search OR location LIKE :search OR expire LIKE :search');
-    $stmt -> bindValue(':search', $search, PDO::PARAM_STR);
-    
+    $stmt = $pdo->prepare('SELECT category, count(category) AS CountOf FROM em_stock_table GROUP BY category');
     $status = $stmt->execute();
 
-    $view = '';
+    $count = '';
     if($status==false){
-        exit('error!');
+        exit('Error!');
     }else{
         while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $view .= '<p>';
-            $view .= '<a href="update.php?id='.$result["id"].'">';
-            $view .= $result['category'].'-'.$result['item'].'-'.$result['expire'].'-'.$result["location"];
-            $view .= '</a>';
-            $view .= '</p>';
+            $count .= '<p class="counts"> ';
+            $count .= $result['category'];
+            $count .= ' : ';
+            $count .= $result['CountOf'];
+            $count .= '</p>';
         }
     }
+
+
+
+
     ?>
-    <main>
-        <div class="view"><?= $view?></div>
-    </main>
+<div class="counts"><?= $count?></div>
 </body>
 </html>

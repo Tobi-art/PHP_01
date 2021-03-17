@@ -10,14 +10,12 @@
 </head>
 <body>
     <header>
-        <h1>非常食在庫管理表</h1>   
-   
-    
-    <div id="navbar">
-    <a href="index.php"><h4>メイン画面</h4></a>
-    <a href="overview.php"><h4>在庫一覧</h4></a>
-    <a href="registerNew.php"><h4>新規登録</h4></a>
-    </div>
+        <h1>在庫管理表</h1>   
+        <div id="navbar">
+            <a href="index.php"><h4>ホーム画面</h4></a>
+            <a href="overview.php"><h4>在庫一覧</h4></a>
+            <a href="registerNew.php"><h4>新規登録</h4></a>
+        </div>
     </header>
 </body>
 </html>
