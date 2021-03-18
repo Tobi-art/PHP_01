@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一覧</title>
     <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <header>
     <?php include('header.php')?>
 </header>
-    <div class="buttons">
-        <a href="overview.php"><button type="submit" class='buttons'>日付順番表示</button></a>
-    </div>
+    <div class="m-left25px">
+        <div class="buttons">
+            <a href="overview.php"><button type="submit" class="btnr">日付順番表示</button></a>
+        </div>
 <?php
     try{
         $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
@@ -41,8 +44,9 @@
         }
     }
     ?>
-    <div class="view"><?= $view?></div>
-
+   
+        <div class="view"><?= $view?></div>
+    </div>
     <footer></footer>
 </body>
 </html>

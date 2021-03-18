@@ -7,7 +7,7 @@ try{
     exit('DbConnectError:'.$e->getMessage());
 }
 
-var_dump($pdo);
+// var_dump($pdo);
 
 $delete = $pdo->prepare('DELETE FROM em_stock_table WHERE id=:id');
 $delete->bindValue(':id', $id, PDO::PARAM_INT);

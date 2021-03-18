@@ -28,6 +28,8 @@ if($status==false){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>更新</title>
     <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -37,7 +39,7 @@ if($status==false){
     <div class="adjust">
     <form action="PHPupdate.php" method="post" id='upd'>
         <label for="category">種類</label><input type="text" name="category" value='<?= $row['category']?>'><br>
-        <label for="item">名前</label><input type="text" name="item" value='<?= $row['item']?>'><br>
+        <label for="item">品名</label><input type="text" name="item" value='<?= $row['item']?>'><br>
         <label for="location">保存場所</label><input type="text" name="location" value='<?= $row['location']?>'><br>
         <label for="expire">賞味期限</label><input type="date" name="expire" value='<?= $row['expire']?>'><br>
         <input type="hidden" name="id" value='<?= $row['id']?>'>

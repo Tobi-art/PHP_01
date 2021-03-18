@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>捜索</title>
     <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -40,7 +42,19 @@
     }
     ?>
     <main>
-        <div class="view"><?= $view?></div>
+        <div id="searchresults">
+            <div class="view"><?= $view?></div>
+            <div id="controls">
+                <a href="index.php"><button class="btnr">ホーム画面へ戻る</button></a>
+                <div id="searchbar">
+                <form action="search.php" method="post" class='inputForm'>
+                    <label for="search">別の表現で捜索</label>
+                    <input type="text" id="search" name="search"><br>
+                    <button type="submit">スタート</button>
+                </form>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

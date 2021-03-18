@@ -3,15 +3,14 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Noto Serif JP', serif;
+    font-size: large;
+    color: #4E4682;
 }
 
 h1 {
     font-size: 8vw;
     padding: 2vw;
-}
-
-h5 {
-    text-align: left;
 }
 
 header {
@@ -30,12 +29,24 @@ footer {
 
 #display {
     width: 50%;
+    padding-left: 25px;
 }
 
 #searchbar {
     width: 50%;
     display: block;
     text-align: left;
+}
+
+#searchresults {
+    text-align: left;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 330px;
 }
 
 #navbar {
@@ -48,25 +59,13 @@ footer {
     border: black solid 2px;
 }
 
-button {
-    background-color: white;
-    border-radius: 6px;
-    height: 22px;
-    padding-bottom: 19px;
-    padding-top: 0px;
-}
-
-.updBtn {
-    height: fit-content;
-    padding-top: 15px;
-}
-
 #upd {
     height: fit-content;
 }
 
 #byCategory {
     text-align: left;
+    padding-top: 25px;
 }
 
 .adjust {
@@ -74,19 +73,40 @@ button {
     margin: 0 25% 0;
 }
 
+.m-left25px {
+    margin-left: 25px;
+}
+
 a {
-    color: black;
+    color: #4E4682;
     text-decoration: none;
 }
 
 .view {
     margin: 10px 25% 0;
     text-align: left;
+    width: max-content;
+    margin-left: 0;
+}
+
+button {
+    background-color: white;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    padding: 0.5em 1em;
+    font-size: 0.6em;
+    color: #782D86;
 }
 
 .buttons {
-    margin: 10px 25% 0;
     width: max-content;
+    text-align: left;
+}
+
+.btnr {
+    background-color: #952125;
+    color: whitesmoke;
+    font-size: 1rem;
 }
 
 .inputForm {
