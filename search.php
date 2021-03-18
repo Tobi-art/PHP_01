@@ -28,29 +28,62 @@
     
     $status = $stmt->execute();
 
-    $view = '';
+    $view = '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr>';
     if($status==false){
         exit('error!');
     }else{
         while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $view .= '<p>';
+            $view .= '<tr>';
+            $view .= '<td>';
             $view .= '<a href="update.php?id='.$result["id"].'">';
-            $view .= $result['category'].'-'.$result['item'].'-'.$result['expire'].'-'.$result["location"];
+            $view .= $result['expire'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="update.php?id='.$result["id"].'">';
+            $view .= $result['category'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="update.php?id='.$result["id"].'">';
+            $view .= $result['item'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="update.php?id='.$result["id"].'">';
+            $view .= $result['location'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="delete.php?id='.$result["id"].'">';
+            $view .= '<button type="submit" class="dlt">削除</button>';
             $view .= '</a>';
-            $view .= '</p>';
+            $view .= '</td>';       
+            $view .= '</tr>';
         }
+        $view .= '<tr><td><br></td><td></td></tr>';
     }
     ?>
     <main>
         <div id="searchresults">
-            <div class="view"><?= $view?></div>
+
+        <?php
+        if($view === '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr><tr><td><br></td><td></td></tr>'){
+            $view = "何も見つかりませんでした";
+        }   else {
+            $view = $view;
+        }
+        ?>
+            <table>
+                <div class="view"><?= $view?></div>
+            </table>
             <div id="controls">
-                <a href="index.php"><button class="btnr">ホーム画面へ戻る</button></a>
+                <!-- <a href="index.php"><button class="btnr">ホーム画面へ戻る</button></a> -->
                 <div id="searchbar">
                 <form action="search.php" method="post" class='inputForm'>
-                    <label for="search">別の表現で捜索</label>
+                    <label for="search">別の物を検索</label>
                     <input type="text" id="search" name="search"><br>
-                    <button type="submit">スタート</button>
+                    <button type="submit">検索</button>
                 </form>
                 </div>
             </div>

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>捜索</title>
     <link rel="stylesheet" href="CSS/reset.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -21,21 +20,24 @@
     $stmt = $pdo->prepare('SELECT category, count(category) AS CountOf FROM em_stock_table GROUP BY category');
     $status = $stmt->execute();
 
-    $count = '';
+    $count = '<tr><th colspan="2">残存</th></tr>';
     if($status==false){
         exit('Error!');
     }else{
         while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $count .= '<p class="counts"> ';
+            $count .= '<tr>';
+            $count .= '<td>';
             $count .= $result['category'];
-            $count .= ' : ';
+            $count .= '</a> ';
+            $count .= '</td>';
+            $count .= '<td>';
             $count .= $result['CountOf'];
-            $count .= '</p>';
+            $count .= '</a> ';
+            $count .= '</td>';
+            $count .= '</tr>';
         }
+        $count .= '<tr><td><br></td><td></td></tr>';
     }
-
-
-
 
     ?>
 <div class="counts"><?= $count?></div>

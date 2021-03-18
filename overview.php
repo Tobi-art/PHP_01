@@ -29,24 +29,45 @@
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY expire asc');
     $status = $stmt->execute();
 
-    $view = '';
+    $view = '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr>';
     if($status==false){
         exit('Error!');
     }else{
         while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $view .= '<p>';
+            $view .= '<tr>';
+            $view .= '<td>';
             $view .= '<a href="update.php?id='.$result["id"].'">';
-            $view .= $result['expire'].'　'.$result['category'].'　'.$result['item'].'　'.$result["location"];
+            $view .= $result['expire'];
             $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="update.php?id='.$result["id"].'">';
+            $view .= $result['category'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="update.php?id='.$result["id"].'">';
+            $view .= $result['item'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
+            $view .= '<a href="update.php?id='.$result["id"].'">';
+            $view .= $result['location'];
+            $view .= '</a> ';
+            $view .= '</td>';
+            $view .= '<td>';
             $view .= '<a href="delete.php?id='.$result["id"].'">';
             $view .= '<button type="submit" class="dlt">削除</button>';
             $view .= '</a>';
-            $view .= '</p>';
+            $view .= '</td>';       
+            $view .= '</tr>';
         }
+        $view .= '<tr><td><br></td></tr>';
     }
     ?>
-        
-            <div class="view"><?= $view?></div>
+            <table>
+                <div class="view"><?= $view?></div>
+            </table>
         </div>
     <footer></footer>
 </body>

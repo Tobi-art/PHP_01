@@ -68,13 +68,33 @@ footer {
     padding-top: 25px;
 }
 
+table {
+    background-color: #DED0FF;
+    border-radius: 8px;
+}
+
+th {
+    padding: 1em 0;
+    text-align: center;
+}
+
+td {
+    padding: 0 0.5em;
+    text-align: left;
+}
+
+#rest {
+    background-color: white;
+    border: #DED0FF 3px solid;
+}
+
 .adjust {
     width: fit-content;
     margin: 0 25% 0;
 }
 
 .m-left25px {
-    margin-left: 25px;
+    margin-left: 5vw;
 }
 
 a {
@@ -90,12 +110,13 @@ a {
 }
 
 button {
-    background-color: white;
+    background-color: #782D86;
     border-radius: 6px;
+    border: #782D86 3px solid;
     margin-top: 0.5rem;
     padding: 0.5em 1em;
     font-size: 0.6em;
-    color: #782D86;
+    color: whitesmoke;
 }
 
 .buttons {
@@ -111,7 +132,7 @@ button {
 
 .inputForm {
     text-align: left;
-    padding: 0 10px;
+    padding: 2em 10px;
     width: max-content;
 }
 
@@ -120,6 +141,10 @@ label {
     text-align: left;
     margin-top: 15px;
     padding: 3px;
+}
+
+#red {
+    color: #952125;
 }
 
 @media (min-width: 1200px) {
@@ -134,5 +159,20 @@ label {
 @media (max-width: 500px) {
     #navbar {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 630px) {
+    main {
+        flex-direction: column;
+    }
+    #searchbar {
+        padding-left: 2em;
+    }
+    #display {
+        width: 90%;
+    }
+    .btnr {
+        font-size: 0.7em;
     }
 }

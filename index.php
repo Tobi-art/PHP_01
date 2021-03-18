@@ -16,19 +16,22 @@
 </header>
 <main>
     <div id='display'>
-        <h5 class='view'>賞味期限が迫っている:</h5>
-        <?PHP include('early5.php')?>
+        <h5 class='view'>賞味期限が迫っている!</h5>
+        <table>
+            <?PHP include('early5.php')?>
+        </table>    
     </div>
     <div id="searchbar">
         <form action="search.php" method="post" class='inputForm'>
-            <label for="search">捜索</label>
+            <label for="search">何か探していますか？</label>
             <input type="text" id="search" name="search"><br>
-            <button type="submit" class="btnr">スタート</button>
+            <button type="submit">検索</button>
         </form>
         <br>
         <div id="byCategory">
-            <h5 class='counts'>残存:</h5>
-            <?php include('counts.php')?>
+            <table id='rest'>
+                <?php include('counts.php')?>
+            </table>
         </div>
     </div>
 </main>
