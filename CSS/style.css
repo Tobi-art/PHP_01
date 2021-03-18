@@ -59,6 +59,17 @@ footer {
     border: black solid 2px;
 }
 
+a:hover {
+    color: #9d36af;
+}
+
+#home:hover,
+#overview:hover,
+#new:hover {
+    color: #782D86;
+    transform: scale3d(1.05, 1.05, 1.05);
+}
+
 #upd {
     height: fit-content;
 }
@@ -119,15 +130,26 @@ button {
     color: whitesmoke;
 }
 
+button:hover {
+    background-color: rgb(189, 2, 189);
+    border: rgb(189, 2, 189) 3px solid;
+}
+
 .buttons {
     width: max-content;
     text-align: left;
 }
 
 .btnr {
+    border: #952125 3px solid;
     background-color: #952125;
     color: whitesmoke;
     font-size: 1rem;
+}
+
+.btnr:hover {
+    background-color: #c0181e;
+    border: #c0181e 3px solid;
 }
 
 .inputForm {
