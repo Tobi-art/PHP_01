@@ -14,6 +14,8 @@
     <header>
     <?php include('header.php')?>
 </header>
+    
+    <!-- 日付順番の一覧に戻るボタンです。 -->
     <div class="m-left25px">
         <div class="buttons">
             <a href="overview.php"><button type="submit" class="btnr">日付順表示</button></a>
@@ -25,9 +27,11 @@
         exit('DbConnectError:'.$e->getMessage());
     }
 
+    // dbから全ての情報を受け取り、category毎に表示します。
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY category asc');
     $status = $stmt->execute();
 
+    // テーブルの方が見やすいので、全てテーブルに入れておきます。
     $view = '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr>';
     if($status==false){
         exit('Error!');
@@ -55,12 +59,13 @@
             $view .= '</a> ';
             $view .= '</td>';
             $view .= '<td>';
-            $view .= '<a href="delete.php?id='.$result["id"].'">';
+            $view .= '<a href="deleteDt.php?id='.$result["id"].'">';
             $view .= '<button type="submit" class="dlt">削除</button>';
             $view .= '</a>';
             $view .= '</td>';       
             $view .= '</tr>';
         }
+        // テーブルにpaddingを付ける方法が見つからなかったので、一番下に空の行を入れました…
         $view .= '<tr><td><br></td></tr>';
     }
     ?>

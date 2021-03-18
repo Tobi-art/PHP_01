@@ -17,9 +17,11 @@
         exit('DbConnectError:'.$e->getMessage());
     }
 
+    // 一つのカテゴリーに何個が入っているか数えます。
     $stmt = $pdo->prepare('SELECT category, count(category) AS CountOf FROM em_stock_table GROUP BY category');
     $status = $stmt->execute();
 
+    // テーブルの方が見やすいので、全てテーブルに入れておきます。
     $count = '<tr><th colspan="2">残存</th></tr>';
     if($status==false){
         exit('Error!');
@@ -36,6 +38,7 @@
             $count .= '</td>';
             $count .= '</tr>';
         }
+    // テーブルにpaddingを付ける方法が見つからなかったので、一番下に空の行を入れました…
         $count .= '<tr><td><br></td><td></td></tr>';
     }
 

@@ -12,6 +12,7 @@
 </head>
 <body>
     <header>
+         <!-- navigationボタンが付いているのでheaderは全てのページに必要です。includeで簡単に表示できるので、専用ページを作成しています。 -->
         <h1>在庫管理表</h1>   
         <div id="navbar">
             <a href="index.php"><h4>ホーム画面</h4></a>

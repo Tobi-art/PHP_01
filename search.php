@@ -23,11 +23,14 @@
     }
 
     $search = $_POST['search'];
+    // どのキーワードでも使えるようにしたかったので、category,又はitem,又はlocation,又はexpireに入っているもの全て表示します。
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table WHERE category LIKE :search OR item LIKE :search OR location LIKE :search OR expire LIKE :search');
-    $stmt -> bindValue(':search', $search, PDO::PARAM_STR);
+    // ％を付けているので、キーワードの一部だけでも反応します。
+    $stmt -> bindValue(':search', '%'.$search.'%', PDO::PARAM_STR);
     
     $status = $stmt->execute();
 
+    // 見やすくする為テーブルに入れます。
     $view = '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr>';
     if($status==false){
         exit('error!');
@@ -69,6 +72,7 @@
 
         <?php
         if($view === '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr><tr><td><br></td><td></td></tr>'){
+            // table headerと最後の空欄は事前用意しているので、何も見つからなくても文字列に入ってきます。その場合はthを表示しない。
             $view = "何も見つかりませんでした";
         }   else {
             $view = $view;
@@ -78,7 +82,6 @@
                 <div class="view"><?= $view?></div>
             </table>
             <div id="controls">
-                <!-- <a href="index.php"><button class="btnr">ホーム画面へ戻る</button></a> -->
                 <div id="searchbar">
                 <form action="search.php" method="post" class='inputForm'>
                     <label for="search">別の物を検索</label>

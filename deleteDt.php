@@ -15,7 +15,7 @@ if($status==false){
     exit ('Error');
 } else{
 // 削除した場所に戻りたいので、deleteページ三つもあります。Location以外は全く同じです。
-    header('Location: overview.php');
+    header('Location: byCategory.php');
 }
 
 ?>

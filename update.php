@@ -49,6 +49,6 @@ if($status==false){
             <a href="delete.php?id=<?= $row['id']?>"><button type="" class="dlt">削除</button></a>
     </div>
     </div>
-<footer></footer>
+<!-- <footer></footer> -->
 </body>
 </html>

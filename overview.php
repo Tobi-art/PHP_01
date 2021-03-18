@@ -15,6 +15,7 @@
         <?PHP include('header.php')?>
     </header>
         <div class="m-left25px">
+            <!-- カテゴリー別表示したいことがあるかもしれないので、こちらのボタンで表示を切り替えることができます。 -->
             <div class="buttons">
                 <a href="byCategory.php"><button type="submit" class="btnr">種類別表示</button></a>
             </div>
@@ -26,9 +27,11 @@
         exit('DbConnectError:'.$e->getMessage());
     }
 
+    // 賞味期限でソートし、在庫の一覧を作ります。
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY expire asc');
     $status = $stmt->execute();
 
+    // テーブルの方が見やすいので、全てテーブルに入れておきます。
     $view = '<tr><th>賞味期限</th><th>種類</th><th>品名</th><th>保存場所</th></tr>';
     if($status==false){
         exit('Error!');
@@ -62,6 +65,7 @@
             $view .= '</td>';       
             $view .= '</tr>';
         }
+    // テーブルにpaddingを付ける方法が見つからなかったので、一番下に空の行を入れました…
         $view .= '<tr><td><br></td></tr>';
     }
     ?>
