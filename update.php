@@ -6,12 +6,12 @@ $pdo = conx_db();
 
 $sql = 'SELECT * FROM em_stock_table WHERE id=:id';
 $stmt = $pdo->prepare($sql);
-$stmt -> bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
-$view ='';
-if($status==false){
-    exit ('Error');
+$view = '';
+if ($status == false) {
+    exit('Error');
 } else {
     $row = $stmt->fetch();
 }
@@ -19,6 +19,7 @@ if($status==false){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,23 +30,25 @@ if($status==false){
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
+
 <body>
     <header>
-<?PHP include('header.php')?>
-</header>
+        <?PHP include('header.php') ?>
+    </header>
     <div class="adjust">
-    <form action="PHPupdate.php" method="post" id='upd'>
-        <label for="category">種類</label><input type="text" name="category" value='<?= $row['category']?>'><br>
-        <label for="item">品名</label><input type="text" name="item" value='<?= $row['item']?>'><br>
-        <label for="location">保存場所</label><input type="text" name="location" value='<?= $row['location']?>'><br>
-        <label for="expire">賞味期限</label><input type="date" name="expire" value='<?= $row['expire']?>'><br>
-        <input type="hidden" name="id" value='<?= $row['id']?>'>
-    </form>
-    <div class="updBtn">
+        <form action="PHPupdate.php" method="post" id='upd'>
+            <label for="category">種類</label><input type="text" name="category" value='<?= $row['category'] ?>'><br>
+            <label for="item">品名</label><input type="text" name="item" value='<?= $row['item'] ?>'><br>
+            <label for="location">保存場所</label><input type="text" name="location" value='<?= $row['location'] ?>'><br>
+            <label for="expire">賞味期限</label><input type="date" name="expire" value='<?= $row['expire'] ?>'><br>
+            <input type="hidden" name="id" value='<?= $row['id'] ?>'>
+        </form>
+        <div class="updBtn">
             <button type="submit" form="upd">更新</button>
-            <a href="delete.php?id=<?= $row['id']?>"><button type="" class="dlt">削除</button></a>
+            <a href="delete.php?id=<?= $row['id'] ?>"><button type="" class="dlt">削除</button></a>
+        </div>
     </div>
-    </div>
-<footer></footer>
+    <footer></footer>
 </body>
+
 </html>

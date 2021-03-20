@@ -18,6 +18,3 @@ function conx_db(){
     }
     return $pdo;
 }
-
-
-?>

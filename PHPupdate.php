@@ -25,7 +25,3 @@ if($status==false){
 } else{
     header('Location: overview.php');
 }
-
-
-
-?>
