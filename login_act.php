@@ -4,7 +4,7 @@ $user = $_POST['user'];
 $pwd = $_POST['pwd'];
 
 try {
-    $pdo = new PDO('mysql:dbname=login_data;charset=utf8;host=localhost', 'root', '');
+    $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost', 'root', '');
 } catch (PDOException $e) {
     exit('DbConnectError:' . $e->getMessage());
 }
