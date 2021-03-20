@@ -12,7 +12,10 @@
 </head>
 <body>
     <header>
-<?PHP include('header.php')?>
+    <?PHP 
+    include('fx.php');
+    ident();
+    include('header.php')?>
 </header>
 <main>
     <!-- とてもシンプルなHTMLフォームです。 -->

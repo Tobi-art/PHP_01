@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>捜索</title>
     <link rel="stylesheet" href="CSS/reset.css">
-    
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 <?php
-    try{
+     try{
         $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
     }    catch (PDOException $e) {
         exit('DbConnectError:'.$e->getMessage());

@@ -21,12 +21,10 @@
             <a href="overview.php"><button type="submit" class="btnr">日付順表示</button></a>
         </div>
 <?php
-    try{
-        $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-    }    catch (PDOException $e) {
-        exit('DbConnectError:'.$e->getMessage());
-    }
-
+    include('fx.php');
+    ident();
+    $pdo = conx_db();
+    
     // dbから全ての情報を受け取り、category毎に表示します。
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY category asc');
     $status = $stmt->execute();

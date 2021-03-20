@@ -21,11 +21,9 @@
             </div>
         
     <?php
-    try{
-        $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-    }    catch (PDOException $e) {
-        exit('DbConnectError:'.$e->getMessage());
-    }
+  include('fx.php');
+  ident();
+  $pdo = conx_db();
 
     // 賞味期限でソートし、在庫の一覧を作ります。
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY expire asc');

@@ -13,7 +13,10 @@
 <body>
 <header>
 <!-- headerを読み込みます。 -->
-    <?PHP include('header.php')?>
+    <?PHP 
+    include('fx.php');
+    ident();
+    include('header.php')?>
 </header>
 <main>
     <!-- 一番賞味期限の短い品物五つを表示します。 -->

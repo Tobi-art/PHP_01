@@ -17,11 +17,8 @@ $location=$_POST['location'];
 $expire=$_POST['expire'];
 
 // dbを繋げます。
-try{
-    $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-}    catch (PDOException $e) {
-    exit('DbConnectError:'.$e->getMessage());
-}
+include('fx.php');
+$pdo = conx_db();
 
 // 書き込みのSQLコマンドを用意します。
 $sql = 'INSERT INTO em_stock_table(id,category,item,location,expire,indate) VALUES(null, :a1, :a2, :a3, :a4, sysdate())';

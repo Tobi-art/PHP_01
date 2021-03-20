@@ -16,11 +16,8 @@
 
     $search = $_POST['search'];
 
-    try{
-        $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-    }    catch (PDOException $e) {
-        exit('DbConnectError:'.$e->getMessage());
-    }
+    include('fx.php');
+    $pdo = conx_db();
 
     $search = $_POST['search'];
     // どのキーワードでも使えるようにしたかったので、category,又はitem,又はlocation,又はexpireに入っているもの全て表示します。

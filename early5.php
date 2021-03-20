@@ -1,9 +1,9 @@
 <?php
 try{
     $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-    } catch (PDOException $e) {
+}    catch (PDOException $e) {
     exit('DbConnectError:'.$e->getMessage());
-    }
+}
 
     // 一番賞味期限が短い品物五つ表示します。
     $stmt = $pdo->prepare('SELECT * FROM em_stock_table ORDER BY expire asc LIMIT 5');

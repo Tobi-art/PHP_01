@@ -1,11 +1,8 @@
 <?php
 $id = $_GET['id'];
 
-try{
-    $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-}    catch (PDOException $e) {
-    exit('DbConnectError:'.$e->getMessage());
-}
+include('fx.php');
+$pdo = conx_db();
 
 $delete = $pdo->prepare('DELETE FROM em_stock_table WHERE id=:id');
 $delete->bindValue(':id', $id, PDO::PARAM_INT);

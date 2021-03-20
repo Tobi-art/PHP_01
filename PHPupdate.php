@@ -1,10 +1,7 @@
 <?php
 
-try{
-    $pdo = new PDO('mysql:dbname=storage_db;charset=utf8;host=localhost','root','');
-}    catch (PDOException $e) {
-    exit('DbConnectError:'.$e->getMessage());
-}
+include('fx.php');
+$pdo = conx_db();
 
 $id = $_POST['id'];
 $category = $_POST['category'];

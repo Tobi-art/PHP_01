@@ -13,11 +13,15 @@
 <body>
     <header>
          <!-- navigationボタンが付いているのでheaderは全てのページに必要です。includeで簡単に表示できるので、専用ページを作成しています。 -->
-        <h1>在庫管理表</h1>   
+        <h1>在庫管理表</h1> 
+        <!-- <div id="logout"> -->
+        <a href="logout.php" style="position: absolute; top: 20px; right: 20px"><button>ログアウト</button></a>
+        <!-- </div> -->
         <div id="navbar">
             <a href="index.php"><h4 id="home">ホーム画面</h4></a>
             <a href="overview.php"><h4 id="overview">在庫一覧</h4></a>
             <a href="registerNew.php"><h4 id="new">新規登録</h4></a>
+            
         </div>
     </header>
 </body>
